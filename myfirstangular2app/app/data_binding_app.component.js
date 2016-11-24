@@ -1,4 +1,4 @@
-System.register(["angular2/core", './item-list.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,38 @@ System.register(["angular2/core", './item-list.component'], function(exports_1, 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, item_list_component_1;
-    var MyTemplate;
+    var core_1;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (item_list_component_1_1) {
-                item_list_component_1 = item_list_component_1_1;
             }],
         execute: function() {
-            MyTemplate = (function () {
-                function MyTemplate() {
+            AppComponent = (function () {
+                function AppComponent() {
+                    this.Items = [
+                        { name: "Butter" },
+                        { name: "Milk" },
+                        { name: "Yogurt" },
+                        { name: "Cheese" },
+                    ];
+                    this.clickedItem = { name: "" };
                 }
-                MyTemplate = __decorate([
+                AppComponent.prototype.onItemClicked = function (Item) {
+                    this.clickedItem = Item;
+                };
+                AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "<my-list></my-list>",
-                        directives: [item_list_component_1.ItemComponent]
+                        template: "\n           <ul>\n              <li\n              *ngFor=\"#Item of Items\"\n              (click)=\"onItemClicked(Item)\">\n                  {{ Item.name }}\n              </li>\n           </ul>\n           <input type=\"text\" [(ngModel)]=\"clickedItem.name\">\n   "
                     }), 
                     __metadata('design:paramtypes', [])
-                ], MyTemplate);
-                return MyTemplate;
+                ], AppComponent);
+                return AppComponent;
             }());
-            exports_1("MyTemplate", MyTemplate);
+            exports_1("AppComponent", AppComponent);
         }
     }
 });
-//# sourceMappingURL=metadata_app.component.js.map
+//# sourceMappingURL=data_binding_app.component.js.map
