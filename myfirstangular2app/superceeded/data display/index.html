@@ -1,8 +1,7 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Contact Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Angular 2 Data Display</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
@@ -16,12 +15,11 @@
         typescriptOptions: { emitDecoratorMetadata: true },
         packages: {'app': {defaultExtension: 'ts'}}
       });
-      System.import('/app/form_main')
+      System.import('/app/data_display_main')
             .then(null, console.error.bind(console));
     </script>
-
   </head>
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+<body>
+   <my-app>Loading...</my-app>
+</body>
 </html>
