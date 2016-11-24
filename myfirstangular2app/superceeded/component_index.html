@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Angular 2 Template</title>
+      <title>Angular 2 Component</title>
+      <!--Load libraries -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
       <script src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
@@ -11,15 +12,19 @@
       <script src="https://code.angularjs.org/2.0.0-beta.6/angular2.dev.js"></script>
       <script>
          System.config({
+            //transpiler tool converts TypeScript to JavaScript
             transpiler: 'typescript',
+
+            //emitDecoratorMetadata flag used by JavaScript output to create metadata from the decorators
             typescriptOptions: { emitDecoratorMetadata: true },
             packages: {'app': {defaultExtension: 'ts'}}
          });
-         System.import('/app/template_main')
-           .then(null, console.error.bind(console));
+         System.import('/app/component_main')
+            .then(null, console.error.bind(console));
       </script>
    </head>
+   <!--When Angular calls the bootstrap function in main.ts, it reads the Component metadata, finds the 'app' selector, locates an element tag named app, and loads the application between those tags.-->
    <body>
-      <my-app>Loading...</my-app>
+      <app>Loading...</app>
    </body>
 </html>
